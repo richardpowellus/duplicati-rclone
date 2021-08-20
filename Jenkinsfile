@@ -44,7 +44,7 @@ pipeline {
         script {
           NEW_UPSTREAM_DOCKERHUB_IMAGE_DIGEST = sh(
             script: '''
-              docker manifest inspect ${UPSTREAM_IMAGE_NAME} -v | jq '.Descriptor' | jq -r '.digest'
+              docker manifest inspect ${UPSTREAM_IMAGE_NAME} -v | jq '.[].Descriptor | select (.platform.architecture=="amd64" and .platform.os=="linux")' | jq -r '.digest'
             ''',
             returnStdout: true
           ).trim()
