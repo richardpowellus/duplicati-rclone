@@ -17,7 +17,7 @@ pipeline {
     DOCKERHUB_REPO_NAME = "duplicati-rclone"
     DOCKERHUB_REPO_TAG = "latest"
     JQ_DESCRIPTOR_QUERY_STRING = ".[].Descriptor | select (.platform.architecture==\"amd64\" and .platform.os==\"linux\")"
-    MAXIMUM_IMAGE_AGE_SECONDS = 604800 // 1 week
+    int MAXIMUM_IMAGE_AGE_SECONDS = 604800 // 1 week
   }
   
   stages {
