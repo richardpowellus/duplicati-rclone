@@ -1,4 +1,4 @@
-FROM linuxserver/duplicati
+FROM lscr.io/linuxserver/duplicati:latest
 LABEL maintainer="richard@powell.dev"
 
 RUN <<EOF
